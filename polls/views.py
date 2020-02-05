@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from .models import Question
+from django.template import loader
+from django.http import HttpResponse
+
 '''
 # Create your views here.
 def pollView(request):
