@@ -6,11 +6,16 @@
 </head>
 <body>
     {% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
+        <ul>
+        {% for question in latest_question_list %}
+            <!-- hard coded url
+                <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+            
+
+             url with a namespace defined -->
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
